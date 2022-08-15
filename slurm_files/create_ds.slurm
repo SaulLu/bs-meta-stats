@@ -10,7 +10,7 @@
 
 set -x -e
 
-source $HOME/.bashrc_six
+source $six_ALL_CCFRWORK/start-prod
 
 conda activate lucile-mod-meta
 
