@@ -9,8 +9,9 @@ files = [
     "c4-en-html_cc-main-2019-18_pq00-002.jsonl",
     "c4-en-html_cc-main-2019-18_pq00-003.jsonl",
     "c4-en-html_cc-main-2019-18_pq00-004.jsonl",
+    "c4-en-html_cc-main-2019-18_pq00-005.jsonl",
 ]
 
-ds = load_dataset_by_files(files=all_files, dataset_name_or_path=dataset_path)
+ds = load_dataset_by_files(files=files, dataset_name_or_path=dataset_path)
 
 print(ds)
