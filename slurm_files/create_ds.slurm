@@ -12,6 +12,8 @@ set -x -e
 
 source $HOME/.bashrc_six
 
+conda activate lucile-mod-meta
+
 export HF_DATASETS_OFFLINE=1
 export HF_DATASETS_CACHE=$SCRATCH/mod-meta/hf_datasets_cache
 
