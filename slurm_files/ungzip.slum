@@ -6,7 +6,7 @@
 #SBATCH --hint=nomultithread         # we get physical cores not logical
 #SBATCH --time 20:00:00              # maximum execution time (HH:MM:SS)
 #SBATCH --output=/gpfsssd/scratch/rech/six/uue59kq/mod-meta/logs/ungzip/%x-%j.out           # output file name
-#SBATCH --array=2000-2500   # TODO: modify according to the number of models you want to evaluated
+#SBATCH --array=2500-2757 
 #SBATCH --account=six@cpu
 
 set -x -e
