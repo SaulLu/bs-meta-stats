@@ -21,4 +21,5 @@ WORKING_DIR=$WORK/repos/bs-meta-stats
 pushd $WORKING_DIR
 
 python first_time_load.py \
-    --dataset_path $DATASET_DIR
+    --dataset_path $DATASET_DIR \
+    --files_to_exclude "c4-en-html_cc-main-2019-18_pq03-124.jsonl.gz"
