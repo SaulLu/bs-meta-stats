@@ -13,6 +13,7 @@ set -x -e
 module load pigz/2.4
 
 DATASET_DIR=$SCRATCH/dataset/c4-en-html-with-metadata
+pushd $DATASET_DIR
 
 SHARD_NAMES=(
 "c4-en-html_cc-main-2019-18_pq00-000.jsonl.gz"
