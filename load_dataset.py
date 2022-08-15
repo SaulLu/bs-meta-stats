@@ -396,9 +396,9 @@ new_features = {}
 final_features = convert_types(features)
 final_features_with_entities = convert_types(features_with_entities)
 
-di = dataset_info("bs-modeling-metadata/c4-en-html-with-metadata")
-fs = HfFileSystem(di)
-all_files = fs.ls(".")
+# di = dataset_info("bs-modeling-metadata/c4-en-html-with-metadata")
+# fs = HfFileSystem(di)
+# all_files = fs.ls(".")
 
 
 def get_files(pattern):
