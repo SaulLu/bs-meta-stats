@@ -1,17 +1,19 @@
+import argparse
 from collections import Counter, defaultdict
 from load_dataset import load_dataset_by_files, all_files
 
-dataset_path = '/home/lucile_huggingface_co/data/c4-en-html-with-metadata'
+def main(args):
+    dataset_path = args.dataset_path 
+    files = [file[:-len(".gz")] for file in all_files if file.endswith(".jsonl.gz")]
+    print(f"{len(files)} files are included")
 
-files = [
-    "c4-en-html_cc-main-2019-18_pq00-000.jsonl",
-    "c4-en-html_cc-main-2019-18_pq00-001.jsonl",
-    "c4-en-html_cc-main-2019-18_pq00-002.jsonl",
-    "c4-en-html_cc-main-2019-18_pq00-003.jsonl",
-    "c4-en-html_cc-main-2019-18_pq00-004.jsonl",
-    "c4-en-html_cc-main-2019-18_pq00-005.jsonl",
-]
+    ds = load_dataset_by_files(files=files, dataset_name_or_path=dataset_path)
 
-ds = load_dataset_by_files(files=files, dataset_name_or_path=dataset_path)
+    print(ds)
 
-print(ds)
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Load a dataset.')
+    parser.add_argument('--dataset_path', type=str, default='c4-en-html-with-metadata')
+    args = parser.parse_args()
+
+    main(args)
