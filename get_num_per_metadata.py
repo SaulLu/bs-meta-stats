@@ -34,7 +34,13 @@ def main(args):
     assert len(args.files) == 1
 
     ds = load_dataset_by_files(files=args.files, dataset_name_or_path=args.dataset_path)
-    logger.info("Dataset successfully loaded")
+
+    logger.info(f"Filtering out empty examples | len before {len(ds)}")
+    ds = ds.filter(
+        lambda x: [lenght[0] != 0 for lenght in x["metadata_generation_length_text"]],
+        batched=True
+    )
+    logger.info(f"Dataset successfully loaded | len after {len(ds)}")
 
     for name in args.metadata_names:
         num = get_num(ds, metadata_col_name=name, num_proc=args.num_proc)
