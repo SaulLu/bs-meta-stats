@@ -5,6 +5,7 @@
 #SBATCH --cpus-per-task=40         # number of cores per tasks
 #SBATCH --hint=nomultithread         # we get physical cores not logical
 #SBATCH --time 20:00:00              # maximum execution time (HH:MM:SS)
+#SBATCH --array=0-2757 
 #SBATCH --output=/gpfsssd/scratch/rech/six/uue59kq/mod-meta/logs/check_empty_texts/%x-%j.out           # output file name
 #SBATCH --account=six@cpu
 
