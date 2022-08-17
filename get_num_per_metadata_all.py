@@ -28,7 +28,6 @@ def get_num(ds, metadata_col_name, num_proc):
 
 def main(args):
     logger.info(f"{len(args.files)} files are included")
-    assert len(args.files) == 1
 
     all_ds = []
     for idx, file in enumerate(args.files):
