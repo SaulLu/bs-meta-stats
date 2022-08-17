@@ -16,14 +16,17 @@ def is_not_empty_list(values):
 
 def get_num(ds, metadata_col_name, num_proc):
     column_names = list(ds.features.keys())
-    sub_ds = ds.map(
-        is_not_empty_list,
-        batched=True,
-        num_proc=num_proc,
-        remove_columns=column_names,
-        input_columns=[metadata_col_name],
-    )
-    return len(sub_ds)
+    if metadata_col_name in column_names:
+        sub_ds = ds.map(
+            is_not_empty_list,
+            batched=True,
+            num_proc=num_proc,
+            remove_columns=column_names,
+            input_columns=[metadata_col_name],
+        )
+        return len(sub_ds)
+    else:
+        return 0
 
 
 def main(args):
