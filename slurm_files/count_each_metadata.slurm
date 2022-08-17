@@ -2786,7 +2786,7 @@ SHARD_NAMES=(
 )
 
 
-python first_time_load.py \
+python get_num_per_metadata.py \
     --dataset_path $DATASET_DIR \
     --files ${SHARD_NAMES[$SLURM_ARRAY_TASK_ID]} \
     --save_dir $SAVING_DIR
