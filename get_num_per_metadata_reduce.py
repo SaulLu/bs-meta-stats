@@ -10,25 +10,6 @@ set_verbosity_info()
 logger = logging.getLogger(__name__)
 
 
-def is_not_empty_list(values):
-    return {"not_none": list(filter(lambda v: v != [], values))}
-
-
-def get_num(ds, metadata_col_name, num_proc):
-    column_names = list(ds.features.keys())
-    if metadata_col_name in column_names:
-        sub_ds = ds.map(
-            is_not_empty_list,
-            batched=True,
-            num_proc=num_proc,
-            remove_columns=column_names,
-            input_columns=[metadata_col_name],
-        )
-        return len(sub_ds)
-    else:
-        return 0
-
-
 def main(args):
 
     for name in args.metadata_names:
@@ -48,7 +29,6 @@ if __name__ == "__main__":
         level=logging.INFO,
     )
     parser = argparse.ArgumentParser(description="Load a dataset.")
-    parser.add_argument("--save_dir", type=Path)
     parser.add_argument("--num_proc", type=int, default=40)
     parser.add_argument('--files', nargs='+', default=[])
     parser.add_argument(
