@@ -25,8 +25,8 @@ def main(args):
     )
     len_after = len(ds)
     logger.info(f"Dataset successfully loaded | len after {len(ds)}")
-    if len_before != len_after:
-        logger.warning(f"There are empty examples: len before {len_before} len after {len_after} ")
+    if len_after != 0:
+        logger.warning(f"There are empty examples: {len_after} ")
 
     logger.info(ds)
 

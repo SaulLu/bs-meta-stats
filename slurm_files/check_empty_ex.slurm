@@ -2786,6 +2786,6 @@ SHARD_NAMES=(
 )
 
 
-python get_num_per_metadata.py \
+python check_empty_examples.py \
     --dataset_path $DATASET_DIR \
     --files ${SHARD_NAMES[$SLURM_ARRAY_TASK_ID]} 
