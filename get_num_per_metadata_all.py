@@ -31,7 +31,7 @@ def main(args):
 
     all_ds = []
     for idx, file in enumerate(args.files):
-        all_ds.append(load_dataset_by_files(files=file, dataset_name_or_path=args.dataset_path))
+        all_ds.append(load_dataset_by_files(files=[file], dataset_name_or_path=args.dataset_path))
         logger.info(f"dataset n°{idx} loaded")
     ds = concatenate_datasets(all_ds)
     logger.info("Dataset successfully loaded")
