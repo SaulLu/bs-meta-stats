@@ -37,7 +37,7 @@ def main(args):
 
     logger.info(f"Filtering out empty examples | len before {len(ds)}")
     ds = ds.filter(
-        lambda x: [lenght[0] != 0 for lenght in x["metadata_generation_length_text"]],
+        lambda x: [text is not None and len(text) != 0 for text in x["text"]],
         batched=True
     )
     logger.info(f"Dataset successfully loaded | len after {len(ds)}")

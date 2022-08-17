@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=mod_meta_create_ds
+#SBATCH --job-name=mod_meta_create_ds_2
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1          # crucial - only 1 task per dist per node!
 #SBATCH --cpus-per-task=40         # number of cores per tasks
@@ -23,7 +23,7 @@ DATASET_DIR=$SCRATCH/dataset/c4-en-html-with-metadata
 WORKING_DIR=$WORK/repos/bs-meta-stats
 pushd $WORKING_DIR
 
-SAVING_DIR=/gpfsssd/scratch/rech/six/uue59kq/mod-meta/stats/absolute_number_of_samples_with_metadata
+SAVING_DIR=/gpfsssd/scratch/rech/six/uue59kq/mod-meta/stats/absolute_number_of_samples_with_metadata_2
 
 
 SHARD_NAMES=(
