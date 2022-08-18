@@ -22,7 +22,7 @@ DATASET_DIR=$SCRATCH/dataset/c4-en-html-with-metadata
 WORKING_DIR=$WORK/repos/bs-meta-stats
 pushd $WORKING_DIR
 
-SAVING_DIR=/gpfsssd/scratch/rech/six/uue59kq/mod-meta/stats/absolute_number_of_samples_with_metadata
+SAVING_DIR=/gpfsssd/scratch/rech/six/uue59kq/mod-meta/stats/absolute_number_of_samples_with_metadata_2
 
 
 SHARD_NAMES=(
@@ -2786,4 +2786,5 @@ SHARD_NAMES=(
 
 
 python get_num_per_metadata_reduce.py \
-    --files ${SHARD_NAMES[@]}
+    --files ${SHARD_NAMES[@]} \
+    --save_dir $SAVING_DIR

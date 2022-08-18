@@ -29,6 +29,7 @@ if __name__ == "__main__":
         level=logging.INFO,
     )
     parser = argparse.ArgumentParser(description="Load a dataset.")
+    parser.add_argument("--save_dir", type=Path)
     parser.add_argument("--num_proc", type=int, default=40)
     parser.add_argument('--files', nargs='+', default=[])
     parser.add_argument(
