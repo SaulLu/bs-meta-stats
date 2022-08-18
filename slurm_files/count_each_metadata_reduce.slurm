@@ -2786,5 +2786,4 @@ SHARD_NAMES=(
 
 
 python get_num_per_metadata_reduce.py \
-    --dataset_path $DATASET_DIR \
     --files ${SHARD_NAMES[@]}
