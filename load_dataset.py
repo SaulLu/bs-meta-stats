@@ -419,7 +419,8 @@ def load_dataset_by_files(files, dataset_name_or_path="bs-modeling-metadata/c4-e
             data_files=selected_files_entities,
             split="train",
             use_auth_token=True,
-            ignore_verifications=True
+            ignore_verifications=True,
+            cache_dir=cache_dir
         )
         print("dataset_entities", dataset_entities)
         datasets.append((dataset_entities, len(selected_files_entities)))

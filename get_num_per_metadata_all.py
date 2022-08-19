@@ -31,7 +31,14 @@ def main(args):
 
     all_ds = []
     for idx, file in enumerate(args.files):
-        all_ds.append(load_dataset_by_files(files=[file], dataset_name_or_path=args.dataset_path))
+        ds = load_dataset_by_files(files=[file], dataset_name_or_path=args.dataset_path)
+
+        ds = ds.filter(
+            lambda x: [text is not None and len(text) != 0 for text in x["text"]],
+            batched=True
+        )
+        all_ds.append(ds)
+
         logger.info(f"dataset n°{idx} loaded")
     ds = concatenate_datasets(all_ds)
     logger.info("Dataset successfully loaded")
@@ -75,3 +82,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     main(args)
+
