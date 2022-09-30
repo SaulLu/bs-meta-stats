@@ -12,7 +12,7 @@
 set -x -e
 module load pigz/2.4
 
-DATASET_DIR=$SCRATCH/dataset/c4-en-html-with-metadata
+DATASET_DIR=/gpfsscratch/rech/six/uue59kq/dataset/c4-en-html-with-metadata
 pushd $DATASET_DIR
 
 SHARD_NAMES=(
