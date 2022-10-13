@@ -3227,35 +3227,35 @@ def extract_html_tags(html_metadata):
 column_names = list(ds.features.keys())
 
 
-sub_ds = ds.map(
-    extract_html_tags, 
-    batched=True, 
-    num_proc=8,
-    remove_columns=column_names, 
-    input_columns=["metadata_html"], 
-    # load_from_cache_file=False
-)
+# sub_ds = ds.map(
+#     extract_html_tags, 
+#     batched=True, 
+#     num_proc=8,
+#     remove_columns=column_names, 
+#     input_columns=["metadata_html"], 
+#     # load_from_cache_file=False
+# )
 
-HTML_TAGS = Counter()
-def count_html_tags(html_tags):
-    for html_tag in html_tags:
-        HTML_TAGS[html_tag] += 1
-    return {"html_metadata":[]}
+# HTML_TAGS = Counter()
+# def count_html_tags(html_tags):
+#     for html_tag in html_tags:
+#         HTML_TAGS[html_tag] += 1
+#     return {"html_metadata":[]}
 
-_sub_ds = sub_ds.map(
-    count_html_tags, 
-    batched=True, 
-    batch_size=100_000,
-    remove_columns=["html_tags"], 
-    input_columns=["html_tags"], 
-    load_from_cache_file=False
-)
-print(HTML_TAGS)
+# _sub_ds = sub_ds.map(
+#     count_html_tags, 
+#     batched=True, 
+#     batch_size=100_000,
+#     remove_columns=["html_tags"], 
+#     input_columns=["html_tags"], 
+#     load_from_cache_file=False
+# )
+# print(HTML_TAGS)
 
 
 
-with open(save_path_HTML_TAGS, 'wb') as handle:
-    pickle.dump(HTML_TAGS, handle, protocol=pickle.HIGHEST_PROTOCOL)
+# with open(save_path_HTML_TAGS, 'wb') as handle:
+#     pickle.dump(HTML_TAGS, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 
 
@@ -3288,11 +3288,11 @@ _sub_ds = sub_ds.map(
 )
 print(HTML_TAGS_PER_DOC)
 
-max(HTML_TAGS_PER_DOC, key=HTML_TAGS_PER_DOC.get)
+# max(HTML_TAGS_PER_DOC, key=HTML_TAGS_PER_DOC.get)
 
-max(HTML_TAGS, key=HTML_TAGS.get)
-print(HTML_TAGS)
-print(HTML_TAGS_PER_DOC)
+# max(HTML_TAGS, key=HTML_TAGS.get)
+# print(HTML_TAGS)
+# print(HTML_TAGS_PER_DOC)
 
 with open(save_path_HTML_TAGS_PER_DOC, 'wb') as handle:
     pickle.dump(HTML_TAGS_PER_DOC, handle, protocol=pickle.HIGHEST_PROTOCOL)
